@@ -1,3 +1,131 @@
+# Bài tập E-Learning 2 - Employee Management System
+
+## Giới thiệu
+
+Hệ thống quản lý nhân viên bằng C++ được thiết kế để thực hiện các thao tác quản lý cơ bản như thêm, xóa, sửa, tìm kiếm, sắp xếp, nhập/xuất dữ liệu từ file CSV. Giao diện người dùng được thực hiện dưới dạng menu console.
+
+Hệ thống sử dụng **danh sách liên kết** (`LinkedList`) để lưu trữ thông tin nhân viên và bao gồm các chức năng chính chia theo các module:
+
+* `main.cpp` – Khởi chạy chương trình và chạy GUI.
+* `GUI.cpp` – Quản lý giao diện menu và điều hướng các thao tác.
+* `modified_function.cpp` – Các chức năng thao tác cơ bản với nhân viên.
+* `data_process.cpp` – Nhập/xuất dữ liệu từ file, xử lý danh sách nhân viên.
+* `LinkedList.cpp` – Cấu trúc danh sách liên kết chứa `NhanVien`.
+* `NhanVien.cpp` – Định nghĩa class `NhanVien`.
+
+
+## Cấu trúc dữ liệu
+
+### Class `NhanVien`
+
+Lưu trữ thông tin cơ bản của nhân viên:
+
+```cpp
+class NhanVien {
+  string manv;
+  string hotennv;
+  string ngaysinh;
+  string email;
+  string diachi;
+  string sodt;
+  int songaycong;
+  float luongngay;
+  float thuclinh;
+};
+```
+
+### Class `Node` (Danh sách liên kết)
+
+Mỗi `Node` chứa một `NhanVien` và liên kết tới node tiếp theo:
+
+```cpp
+class Node {
+  NhanVien Data;
+  Node* Next;
+};
+```
+
+
+## Flow chương trình
+
+1. **main.cpp**
+
+   * Khởi tạo danh sách `List L`.
+   * Khởi tạo GUI `EmployeeUI gui`.
+   * Chạy `gui.run(L)`.
+
+2. **GUI.cpp**
+
+   * Hiển thị menu chính cho người dùng:
+
+     * Thêm, xóa, sửa, hiển thị nhân viên.
+     * Sắp xếp, tìm kiếm theo ID, tên hoặc lương.
+     * Nhập/xuất dữ liệu từ file.
+   * Quản lý các vòng lặp do-while và switch-case cho menu và sub-menu.
+
+3. **modified\_function.cpp**
+
+   * Chứa các thao tác chính với danh sách nhân viên, quay về menu sau khi thực hiện xong.
+
+4. **data\_process.cpp**
+
+   * Nhập dữ liệu từ file CSV: kiểm tra trùng ID, thêm vào danh sách.
+   * Xuất dữ liệu ra file CSV.
+   * Các thao tác xem, tìm kiếm, sắp xếp, xóa, cập nhật nhân viên.
+
+5. **LinkedList.cpp**
+
+   * Cấu trúc danh sách liên kết chứa nhân viên.
+
+6. **NhanVien.cpp**
+
+   * Constructor và thuộc tính của nhân viên.
+
+
+## Cấu trúc thư mục
+
+```
+CTDL/
+│
+├── main.cpp
+├─ Repository
+│   ├─ LinkedList.cpp        
+│   └─ NhanVien.cpp    
+├── Service/
+│   ├─ data_process.cpp 
+│   ├─ GUI.cpp 
+│   └─ modified_function.json  
+├── nhanvien.csv
+└── README.md
+```
+
+## Hướng dẫn sử dụng
+
+1. **Biên dịch chương trình**
+
+   ```bash
+    g++ main.cpp -o main.exe
+   ```
+
+2. **Chạy chương trình**
+
+   ```bash
+   .\main.exe
+   ```
+
+3. **Menu chính**
+
+   * Người dùng chọn các chức năng bằng số tương ứng.
+   * Sau khi thực hiện xong, chương trình quay lại menu chính.
+
+4. **Nhập/xuất dữ liệu**
+
+   * Hỗ trợ file CSV với các thông tin nhân viên cơ bản.
+   * Kiểm tra trùng ID khi nhập.
+
+
+
+## Flowchart
 ### main.cpp
 ```mermaid
 flowchart TD
@@ -349,3 +477,8 @@ flowchart TD
     mod_End --> gui_F
     data_End --> gui_F
 ```
+
+
+# https://github.com/ArufaNguyen/CTDL
+### CTDL_E Learning 2 - Linked List
+## UTH 012012400211 - Cấu trúc dữ liệu và giải thuật - 7480201190360 - Nhóm 2
